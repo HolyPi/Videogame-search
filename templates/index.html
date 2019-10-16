@@ -1,0 +1,15 @@
+<!-- templates/index.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="loading"></div>
+<h1><span class = "header">Videogame Searcher</span></h1>
+
+<form class="" action="/">
+
+  <input type="search" class="searchbar" name="search" placeholder="Search for a game..."/>
+  <button type="submit" class="searchbutton">Search</button>
+</form>
+    {% for response in response %}
+    {% endfor %}
+{% endblock %}
