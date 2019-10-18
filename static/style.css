@@ -1,5 +1,16 @@
-background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,79,187,1) 35%, rgba(0,212,255,1) 100%);
+
+
+body {
+      background: #ECDEAD;
+      background: -webkit-radial-gradient(center, #ECDEAD, #D4B3B3);
+      background: -moz-radial-gradient(center, #ECDEAD, #D4B3B3);
+      background: radial-gradient(ellipse at center, #ECDEAD, #D4B3B3);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 25px;
+      grid-row-gap: 25px;
+      width:100%;
+      border: 25%;
 }
 
 .searchbutton {
@@ -27,3 +38,4 @@ h1 {
     border: 1px lightblue;
     margin: 15x;
     padding: 4px; */
+}

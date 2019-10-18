@@ -1,15 +1,21 @@
-<!DOCTYPE html>
+<!-- templates/base.html -->
+
+<!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Videogame Searcher</title>
+    <meta charset='utf-8'>
+    <title>GameView</title>
+    
     <link href="../static/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
-    {% block content %}
+    {% include 'partials/navbar.html' %}
 
-    {% endblock %}
+
+  <div class='container'>
+      {% block content %}{% endblock %}
+  </div>
 
 </body>
 </html>

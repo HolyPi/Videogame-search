@@ -1,0 +1,13 @@
+<!-- templates/videogame_show.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<a href='/'>Back to Home</a>
+
+<h1 style="font-size: 72px;">{{ videogame.title }}</h1>
+<img src = {{ videogame.image }} height="450", width="350"  >
+<h2><strong>Price:  ${{ videogame.price }}</strong></h2>
+<h2><strong>Platform: {{ videogame.platform }}</strong></h2>
+<a href="{{ videogame._id }}" role="button">Add to favorites</a>
+</div>
+{% endblock %}

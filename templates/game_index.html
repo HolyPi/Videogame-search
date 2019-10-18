@@ -1,0 +1,22 @@
+<!-- templates/game_index.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="loading"></div>
+    <h1><span class = "header">Welcome to GameView</span></h1>
+
+    <form class="" action="/">
+
+      <input type="search" class="searchbar" name="search" placeholder="Search..."/>
+      <button type="submit" class="searchbutton">Search</button>
+    </form>
+    <h1>Videogames</h1>
+    {% for videogame in videogames %}
+        <h2><a href="/videogame/{{ videogame._id }}">{{ videogame.title }}<a></h2>
+        <img src = {{ videogame.image }} height="320", width="240"  >
+        <img src = {{ videogame.platform }} height="50", width='50' >
+        <h2><strong>{{ videogame.price }}</strong></h2>
+
+    {% endfor %}
+{% endblock %}

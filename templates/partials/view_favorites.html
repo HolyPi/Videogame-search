@@ -1,0 +1,27 @@
+<!-- templates/partials/view_favorites.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2> F A V O R I T E S </h2>
+<h2>{{ Nothing }}</h2>
+
+<div class="favorites-gd">
+    {% for videogame in favorites %}
+    <div class="favorites-header" id="{{ videogame.id }}" >
+
+      <p><form method="POST" action="/favorites/{{ videogame._id }}/delete">
+              <input type = "hidden" name="_method" value="DELETE">
+              <button class = "btn btn-primary" type="submit">Remove from favorites.</button>
+                <img src="{{ videogame.image }}" height="250", width="200" />
+            </div>
+                <h3><a href="#"> {{ videogame.title }} </a></h3>
+                    <p><span>Unit price : $</span> <span >{{ videogame.price }}</span></p>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}
