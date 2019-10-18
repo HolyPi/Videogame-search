@@ -1,41 +1,28 @@
 
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>GameView</title>
 
-body {
-      background: #ECDEAD;
-      background: -webkit-radial-gradient(center, #ECDEAD, #D4B3B3);
-      background: -moz-radial-gradient(center, #ECDEAD, #D4B3B3);
-      background: radial-gradient(ellipse at center, #ECDEAD, #D4B3B3);
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-column-gap: 25px;
-      grid-row-gap: 25px;
-      width:100%;
-      border: 25%;
-}
+    <link rel="stylesheet" href="{{ url_for('static',    filename='css/template.css') }}">
 
-.searchbutton {
-  border: 2px lightblue;
-  background-color: lightgreen;
-}
-.searchbar {
-  border: 1px lightgrey;
-  margin-top: 40px;
-  width: 50%;
-  height: 40%;
-  background-color: lightblue;
-}
+</head>
+  <body>
+    <header>
+      <div class="container">
+        <h1 class="logo">GameView</h1>
+        <strong><nav>
+          <ul class="menu">
+            <li><a href="{{ url_for('videogames') }}">Videogames</a></li>
+            <li><a href="{{ url_for('favorites') }}">Favorites</a></li>
+          </ul>
+        </nav></strong>
+      </div>
+    </header>
 
-header {
-  padding: 50px;
-  background: #FFFFFF
-}
-h1 {
-#Font found in designshack
-  font: 100 100px/1.3 'Lobster Two', Helvetica, sans-serif;
-  color: #2b2b2b;
-  text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
+{% block content %}
+{% endblock %}
 
-    border: 1px lightblue;
-    margin: 15x;
-    padding: 4px; */
-}
+ </body>
+</html>

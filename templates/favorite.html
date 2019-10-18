@@ -1,4 +1,4 @@
-<!-- templates/partials/view_favorites.html -->
+<!-- templates/favorite.html -->
 {% extends 'base.html' %}
 
 {% block content %}
@@ -14,9 +14,7 @@
               <button class = "btn btn-primary" type="submit">Remove from favorites.</button>
                 <img src="{{ videogame.image }}" height="250", width="200" />
             </div>
-                <h3><a href="#"> {{ videogame.title }} </a></h3>
-                    <p><span>Unit price : $</span> <span >{{ videogame.price }}</span></p>
-                    <div class="clearfix"></div>
+                <h3><a href=""> {{ videogame.title }} </a></h3>
                 </div>
             </div>
             <div class="clearfix"></div>

@@ -10,22 +10,25 @@ app = Flask(__name__)
 client = MongoClient()
 db = client.get_default_database('GameView')
 videogames = db.videogames
+favorites = db.favorites
+favorites.delete_many({})
+
 
 #Videogames database was disabled because it was going to be pushed to Heroku app twice
 videogames.delete_many({})
 videogames.insert_many(
 
-    [{'title': 'Persona 1', 'price': 50.00, 'image': "https://images-na.ssl-images-amazon.com/images/I/51GYSIjaXAL._SX342_.jpg", 'platform': "http://gotrend.co.za/wp-content/uploads/2015/09/2000px-Playstation_logo.png?w=640"},
+    [{'title': 'Persona 1', 'price': 50.99, 'image': "https://images-na.ssl-images-amazon.com/images/I/51GYSIjaXAL._SX342_.jpg", 'platform': "http://gotrend.co.za/wp-content/uploads/2015/09/2000px-Playstation_logo.png?w=640"},
     {'title': 'Persona 2', 'price': 52.22, 'image': "https://upload.wikimedia.org/wikipedia/en/thumb/9/93/Persona_2_IS_NA_box_art.png/220px-Persona_2_IS_NA_box_art.png", 'platform': "https://www.feirox.com/rivu/2015/02/PPSSPP-PSP-emulator-1.png"},
     {'title': 'Persona 3', 'price': 22.22, 'image': "https://images-na.ssl-images-amazon.com/images/I/81yTRFRr23L.AC_SL1500_.jpg", 'platform': "https://www.feirox.com/rivu/2015/02/PPSSPP-PSP-emulator-1.png"},
-    {'title': 'Persona 4', 'price': 30.00, 'image': "https://m.media-amazon.com/images/S/aplus-media/sota/3eee2f4f-63aa-4c47-b5cd-dc7621d70d1d.jpg", 'platform': "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/PlayStation_logo.svg/1200px-PlayStation_logo.svg.png"},
+    {'title': 'Persona 4', 'price': 30.99, 'image': "https://m.media-amazon.com/images/S/aplus-media/sota/3eee2f4f-63aa-4c47-b5cd-dc7621d70d1d.jpg", 'platform': "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/PlayStation_logo.svg/1200px-PlayStation_logo.svg.png"},
     {'title': 'Persona 5', 'price': 59.99, 'image': "https://media.gamestop.com/i/gamestop/10146553/Persona-5", 'platform': "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/PlayStation_logo.svg/1200px-PlayStation_logo.svg.png"},
-    {'title': 'Ace Attorney Investigations: Miles Edgeworth', 'price': 20.00, 'image': "https://upload.wikimedia.org/wikipedia/en/thumb/0/0d/Ace_Attorney_Investigations_Miles_Edgeworth_Game_Cover.jpg/220px-Ace_Attorney_Investigations_Miles_Edgeworth_Game_Cover.jpg", 'platform': "https://www.ssbwiki.com/images/4/44/DSSymbol.svg"},
-    {'title': 'Ace Attorney Investigations 2', 'price': 14.00, 'image': "https://upload.wikimedia.org/wikipedia/en/2/20/GK2boxart.jpg", 'platform': "https://www.ssbwiki.com/images/4/44/DSSymbol.svg"},
-    {'title': 'Phoenix Wright: Ace Attorney', 'price': 15.00, 'image': "https://upload.wikimedia.org/wikipedia/en/7/73/Phoenix_Wright_-_Ace_Attorney_Coverart.png", 'platform': "https://www.ssbwiki.com/images/4/44/DSSymbol.svg"},
-    {'title': 'Apollo Justice: Ace Attorney', 'price': 40.00, 'image': "https://upload.wikimedia.org/wikipedia/en/0/0b/Apollo-justice-english-cover.jpg", 'platform': "https://www.ssbwiki.com/images/4/44/DSSymbol.svg"},
-    {'title': 'Phoenix Wright: Ace Attorney − Dual Destinies', 'price': 30.00, 'image': "https://upload.wikimedia.org/wikipedia/en/b/bd/Ace_Attorney_5_cover.jpg", 'platform': "https://cdn.worldvectorlogo.com/logos/nintendo-3ds.svg"},
-    {'title': 'Phoenix Wright: Ace Attorney − Trials and Tribulations', 'price': 15.00, 'image': "https://upload.wikimedia.org/wikipedia/en/5/51/Pw3-cover-english.jpg", 'platform': "https://www.ssbwiki.com/images/4/44/DSSymbol.svg"},
+    {'title': 'Ace Attorney Investigations: Miles Edgeworth', 'price': 20.99, 'image': "https://upload.wikimedia.org/wikipedia/en/thumb/0/0d/Ace_Attorney_Investigations_Miles_Edgeworth_Game_Cover.jpg/220px-Ace_Attorney_Investigations_Miles_Edgeworth_Game_Cover.jpg", 'platform': "https://www.ssbwiki.com/images/4/44/DSSymbol.svg"},
+    {'title': 'Ace Attorney Investigations 2', 'price': 14.99, 'image': "https://upload.wikimedia.org/wikipedia/en/2/20/GK2boxart.jpg", 'platform': "https://www.ssbwiki.com/images/4/44/DSSymbol.svg"},
+    {'title': 'Phoenix Wright: Ace Attorney', 'price': 15.99, 'image': "https://upload.wikimedia.org/wikipedia/en/7/73/Phoenix_Wright_-_Ace_Attorney_Coverart.png", 'platform': "https://www.ssbwiki.com/images/4/44/DSSymbol.svg"},
+    {'title': 'Apollo Justice: Ace Attorney', 'price': 40.99, 'image': "https://upload.wikimedia.org/wikipedia/en/0/0b/Apollo-justice-english-cover.jpg", 'platform': "https://www.ssbwiki.com/images/4/44/DSSymbol.svg"},
+    {'title': 'Phoenix Wright: Ace Attorney − Dual Destinies', 'price': 30.99, 'image': "https://upload.wikimedia.org/wikipedia/en/b/bd/Ace_Attorney_5_cover.jpg", 'platform': "https://cdn.worldvectorlogo.com/logos/nintendo-3ds.svg"},
+    {'title': 'Phoenix Wright: Ace Attorney − Trials and Tribulations', 'price': 15.99, 'image': "https://upload.wikimedia.org/wikipedia/en/5/51/Pw3-cover-english.jpg", 'platform': "https://www.ssbwiki.com/images/4/44/DSSymbol.svg"},
     {'title': 'Metal Gear Solid: Snake Eater', 'price': 14.99, 'image': "https://http2.mlstatic.com/metal-gear-solid-3-snake-eater-ps2-patch-leia-desc-D_NQ_NP_778579-MLB31218428427_062019-F.jpg", 'platform': "http://gotrend.co.za/wp-content/uploads/2015/09/2000px-Playstation_logo.png?w=640"},
     {'title': 'Danganronpa trilogy', 'price': 59.99, 'image': "https://images-na.ssl-images-amazon.com/images/I/81sLio1GoeL._AC_SX430_.jpg", 'platform': "http://gotrend.co.za/wp-content/uploads/2015/09/2000px-Playstation_logo.png?w=640" },
     {'title': 'Metal Gear Solid', 'price': 70.55, 'image': "https://upload.wikimedia.org/wikipedia/en/3/33/Metal_Gear_Solid_cover_art.png", 'platform': "http://gotrend.co.za/wp-content/uploads/2015/09/2000px-Playstation_logo.png?w=640" },
@@ -63,33 +66,45 @@ videogames.insert_many(
 #     "Shows user profile"
 # return_template("user.html")
 
-@app.route('/favorites')
-def favorites():
-    "Shows favorite list."
 
 @app.route('/')
 def game_index():
     """Show all videogames."""
     return render_template('game_index.html', videogames=videogames.find())
-    q = request.args.get("search")
-    querystring = {"search": q}
+
+    # f = db.videogames.findone()
+    # # q = request.args.get("search")
+    # querystring = {"search": f}
+
 
 @app.route('/videogame/<videogame_id>', methods=['GET'])
-def ogame_show(videogame_id):
+def game_show(videogame_id):
     "Individual Videogame"
     videogame = videogames.find_one({'_id': ObjectId(videogame_id)})
     return render_template('game_show.html', videogame=videogame)
 
-# @app.route("/videogame/<videogame_id>/purchase", methods=['GET'])
-# def add_to_cart(videogame_id):
-#     "Adds to the cart"
-#     game = videogames.find_one({'_id': ObjectId(videogame_id)})
-#     print(game)
-#     cartGame = {
-#         'title': game.get('title'),
-#         'price': game.get('price'),
-#         'image': game.get('image'),
-#         'platform': game.get('platform')
+@app.route("/videogame/<videogame_id>/favorited", methods=['GET'])
+def add_to_favorites(videogame_id):
+    "Adds to the favorites"
+    game = videogames.find_one({'_id': ObjectId(videogame_id)})
+    print(game)
+    favoritesGame = {
+        'title': game.get('title'),
+        'price': game.get('price'),
+        'image': game.get('image'),
+        'platform': game.get('platform')
+     }
+    favorites.insert_one(favoritesGame)
+    return redirect(url_for('game_index', game=game))
+
+@app.route('/search')
+def search_game(videogame_id):
+    "Search for games"
+
+    f = request.args.get("search")
+    querystring = {"search": f}
+
+    return render_template('game_show.html', querystring=querystring)
 
 
 @app.route("/favorites")
@@ -101,4 +116,11 @@ def view_favorite():
         total += int(videogame['price'])
     if favorites.count_documents({}) <= 0:
         Nothing = "Add some games to your favorites!"
-    return render_template("view_favorites.html", favorites=favorites.find(), Nothing = Nothing)
+    return render_template("favorite.html", favorites=favorites.find(), total = total, Nothing = Nothing)
+
+
+@app.route("/favorites/<videogame_id>/delete", methods=['POST'])
+def remove_from_favorite(videogame_id):
+    "Removes from favorites"
+    favorites.delete_one({'_id':ObjectId(videogame_id)})
+    return redirect(url_for('favorite.html'))

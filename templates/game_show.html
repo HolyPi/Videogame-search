@@ -1,13 +1,15 @@
-<!-- templates/videogame_show.html -->
+<!-- templates/game_show.html -->
 {% extends 'base.html' %}
 
 {% block content %}
 <a href='/'>Back to Home</a>
 
-<h1 style="font-size: 72px;">{{ videogame.title }}</h1>
+<h1 style="font-size: 40px;">{{ videogame.title }}</h1>
 <img src = {{ videogame.image }} height="450", width="350"  >
 <h2><strong>Price:  ${{ videogame.price }}</strong></h2>
-<h2><strong>Platform: {{ videogame.platform }}</strong></h2>
-<a href="{{ videogame._id }}" role="button">Add to favorites</a>
-</div>
+<h2><strong> Platform: <img src = {{ videogame.platform }} height="50", width="50"> </strong></h2>
+<!-- <button type="button" <a href="/favorited/{{ videogame._id }}" role="button">Add to favorites</a> -->
+<h3><a href="/videogame/{{ videogame._id}}/favorited">Button</a></h3>
+<!-- {% for title in videogames %} -->
+<!-- {% endfor %} -->
 {% endblock %}
