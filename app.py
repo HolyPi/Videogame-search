@@ -83,6 +83,9 @@ def game_show(videogame_id):
     videogame = videogames.find_one({'_id': ObjectId(videogame_id)})
     return render_template('game_show.html', videogame=videogame)
 
+
+
+
 @app.route("/videogame/<videogame_id>/favorited", methods=['GET'])
 def add_to_favorites(videogame_id):
     "Adds to the favorites"
@@ -123,4 +126,4 @@ def view_favorite():
 def remove_from_favorite(videogame_id):
     "Removes from favorites"
     favorites.delete_one({'_id':ObjectId(videogame_id)})
-    return redirect(url_for('favorite.html'))
+    return redirect(url_for('view_favorite'))
