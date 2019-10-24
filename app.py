@@ -61,10 +61,9 @@ videogames.insert_many(
 #             return redirect(url_for('home'))
 #     return render_template('login.html', error=error)
 
-# @app.route('/profile')
-# def profile():
-#     "Shows user profile"
-# return_template("user.html")
+@app.route('/profile')
+def profile():
+    "Shows user profile, and favorites"
 
 
 @app.route('/')
@@ -108,7 +107,6 @@ def search_game(videogame_id):
     querystring = {"search": f}
 
     return render_template('game_show.html', querystring=querystring)
-
 
 @app.route("/favorites")
 def view_favorite():
