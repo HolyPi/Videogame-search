@@ -64,6 +64,8 @@ videogames.insert_many(
 @app.route('/profile')
 def profile():
     "Shows user profile, and favorites"
+    
+@app.route('/quiz')
 
 
 @app.route('/')
